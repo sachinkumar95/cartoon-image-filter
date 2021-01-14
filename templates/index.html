@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <title>cartoonify your image</title>
+    <style>
+        [type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+[type="file"] + label {
+  background: #99c793;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+	font-family: 'Rubik', sans-serif;
+	font-size: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+ 
+}
+
+body {
+  font-family: 'Literata', serif;
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.wrapper {
+  background-color: #fff;
+  border-radius: 1rem;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.submit{
+  background-color:#99c793;
+  color: #fff;
+  /* border-radius: 1rem; */
+}
+
+h1,
+p {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.7rem;
+}
+
+
+    </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <h1>Cartoonify Your Image</h1>
+    {% if message %}
+        <div class="alert alert-danger"  role="alert">{{ message }}</div>
+    {% endif %}
+
+    <form method="POST" action="{{url_for('submit')}}" enctype="multipart/form-data">
+        <div class="wrapper">
+        <input id="file" type="file" name="file">
+        <label for="file">choose a file</label>
+        <input class="submit" type="submit" value="Submit">
+        </div>
+      <p></p>
+    </form>
+  </body>
+</html>
